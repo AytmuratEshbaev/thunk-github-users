@@ -4,11 +4,6 @@
   box-sizing: border-box;
 }
 
-body {
-  min-width: 100vw;
-  min-height: 100vh;
-  overflow: hidden;
-}
 
 .App {
   width: 500px;
