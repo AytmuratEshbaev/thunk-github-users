@@ -1,472 +1,59 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-.App{
-    width: 100%;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    font-family: "Segoe UI";
-    position: relative;
+body {
+  min-width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.orderBlock{
-    flex-basis: 30%;
-    border-radius: 10px;
-    padding: 10px 0 0;
-    border: 1px solid #aaa;
-    overflow: hidden;
+.App {
+  width: 500px;
+  margin: 20px auto;
+  border-radius: 10px;
+  padding: 20px 40px;
+  overflow: hidden;
+  box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.3),
+    -3px -3px 10px 0 rgba(0, 0, 0, 0.3);
+}
+.app__control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
 }
 
-.orderBlock__header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 10px;
-    margin-bottom: 20px;
+.app__control input {
+  padding: 5px 10px;
+  outline: none;
+  border: 1px solid #333;
+  font-size: 16px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  border-radius: 5px;
+  margin-right: 10px;
+  flex-grow: 1;
+}
+.app__control button {
+  font-size: 15px;
+  padding: 5px 20px;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #fff;
+  color: crimson;
+  transition: all 0.5s ease;
+  border: 1px solid crimson;
 }
 
-.orderBlock__header p{
-    font-size: 19px;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    color: #333;
+.app__control button:hover {
+  background-color: crimson;
+  color: #fff;
 }
 
-.orderBlock__header .orderBlock__purchase{
-    background-color: #777;
-    color: #fff;
-    border-radius: 5px;
-    padding: 3px 15px;
-    letter-spacing: 0;
-    font-size: 15px;
-}
-
-.orderBlock__header input{
-    background-color: #ffa500;
-    padding: 5px 10px;
-    font-size: 15px;
-    font-family: "Segoe UI";
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    color: #333;
-}
-
-.order{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.order .order__product{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 15px;
-    border-bottom: 1px solid #aaa;
-}
-.order__productControl{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.order .order__product .order__productControl button{
-    padding: 4px 12px;
-    font-size: 18px;
-    font-weight: 600;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    font-family: "Segoe UI";
-    outline: none;
-    cursor: pointer;
-}
-.order .order__product .order__productControl button:first-child{
-    background-color: #de0000;
-}
-.order .order__product .order__productControl button:last-of-type{
-    background-color: #0a860a;
-}
-
-.order .order__product .order__productControl input{
-    outline: none;
-    border: none;
-    background-color: #ccc;
-    padding: 5.5px 0px;
-    font-size: 16px;
-    width: 50px;
-    text-align: center;
-    border-radius: 3px;
-    font-family: "Segoe UI";
-}
-
-.order__productName{
-    font-weight: 500;
-    margin-bottom: 2px;
-    letter-spacing: 0.5px;
-}
-
-.order__productPrice{
-    font-size: 15px;
-}
-
-.order__control{
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #aaa;
-}
-
-.order__control button{
-    border: none;
-    padding: 7px 15px;
-    font-size: 16px;
-    font-family: "Segoe UI";
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 500;
-    letter-spacing: 0.3px;
-
-}
-#load__control{
-    border: none;
-}
-.order__saveBtn{
-    background-color: #22ab22;
-}
-.order__checkoutBtn{
-    background-color: #0080b0;
-}
-.order__loadBtn{
-    background-color: #282c34;
-}
-
-.infoPurchases{
-    border-bottom: 1px solid #aaa;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #eee;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-}
-.infoPurchases .purchase__sum{
-    font-weight: bold;
-}
-
-.products{
-    flex-basis: 70%;
-}
-.products__title{
-    font-size: 22px;
-    font-weight: bold;
-    text-align: center;
-    padding: 15px 0;
-}
-
-.product{
-    display: inline-block;
-    width: 30%;
-    box-shadow: 1px 1px 3px 0 #aaa, -1px -1px 3px 0 #aaa;
-    margin: 10px;
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-}
-
-.product img{
-    width: 100%;
-    height: 200px;
-}
-
-.product span{
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    display: inline-block;
-    background-color: blueviolet;
-    font-size: 12px;
-    font-weight: bold;
-    color: #fff;
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    border-radius: 50%;
-    padding-top: 1px;
-}
-
-.load__products{
-    padding: 15px;
-    list-style: none;
-    border-top: 1px solid #aaa;
-    color: #008000;
-}
-
-.box, .wrap{
-    width: 100%;
-    height: 0%;
-    background-color: rgba(0,0,0,0.5);
-    transition: al .5s ease;
-    overflow: hidden;
-    position: fixed;
-    left: 0;
-    top: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.box .modal{
-    background-color: #fff;
-    padding: 20px 40px;
-    border-radius: 10px;
-    position: relative;
-    overflow: hidden;
-    width: 500px;
-}
-
-.modal__title{
-    margin-bottom: 20px;
-}
-
-.modal button{
-    position: absolute;
-    top: 0;
-    right: 0;
-    border: 0;
-    background-color: #ddd;
-    padding: 3px 4px;
-    cursor: pointer;
-    transition: all .5s ease;
-    outline: none;
-}
-.modal button:hover{
-    background-color: #ff2727;
-    color: #fff;
-
-}
-
-.modal .modal__text{
-    padding: 5px 10px;
-    outline: none;
-    border: 1px solid #aaa;
-    border-radius: 5px;
-    margin-right: 20px;
-    width: 70%;
-    font-family: "Segoe UI";
-    font-size: 14px;
-}
-
-.modal .modal__submit{
-    border: none;
-    background-color: #0048ff;
-    padding: 5px 16px;
-    font-size: 15px;
-    font-family: "Segoe UI";
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-
-.wrap{
-    height: 100%;
-}
-
-.wrap .checkoutModal{
-    padding: 15px 30px;
-    background-color: #fff;
-    border-radius: 10px;
-    width: 350px;
-}
-
-.checkoutModal h2{
-    padding: 5px 0 15px;
-    text-align: center;
-}
-
-.checkoutModal p{
-    padding: 5px 0;
-}
-
-.checkoutModal .checkoutModal__warning{
-    text-align: center;
-    margin-bottom: 10px;
-}
-.checkoutModal__control *{
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    padding: 7px 20px;
-    font-size: 15px;
-    font-family: "Segoe UI";
-    margin: 0 15px;
-    cursor: pointer;
-    outline: none;
-}
-.checkoutModal__control{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.checkoutModal__cancel{
-    background-color: #000;
-}
-
-.checkoutModal__continue{
-    background-color: #0048ff;
-    text-decoration: none;
-    display: inline-block;
-}
-
-.checkout{
-    width: 100%;
-}
-
-.checkout nav{
-    padding: 20px;
-}
-
-.checkout nav a{
-    text-decoration: none;
-    display: inline-block;
-    padding: 7px 15px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: blueviolet;
-    color: #fff;
-    font-size: 16px;
-    letter-spacing: .5px;
-    font-weight: 500;
-    border-radius: 10px;
-    margin-left: 20px;
-    position: relative;
-}
-
-.checkout nav a::before{
-    content: '<';
-    position: absolute;
-    top: -2px;
-    font-size: 25px;
-    right: 105%;
-    color: rgb(138, 43, 226);
-    font-weight: 900;
-}
-
-.info{
-    width: 600px;
-    margin:  0 20px;
-    padding: 20px 50px;
-    box-shadow: 2px 2px 4px 0 rgba(138, 43, 226,0.6), -2px -2px 4px 0 rgba(138, 43, 226,0.6);
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-.info h1{
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.info .input_group{
-    padding: 7px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.input_group label{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 18px;
-    letter-spacing: .3px;
-    margin-right: 20px;
-}
-
-.input_group input[type='text'],
-.input_group input[type='email']{
-    padding: 5px 15px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 15px;
-    outline: none;
-    border: 1px solid #aaa;
-    border-radius: 5px;
-    letter-spacing: .5px;
-    width: auto;
-    flex-grow: 1;
-}
-
-.input_group select{
-    flex-grow: 1;
-    padding: 5px 10px;
-    outline: none;
-    letter-spacing: .5px;
-    font-size: 15px;
-    border-radius: 5px;
-    border: 1px solid #aaa;
-}
-
-.input_group textarea{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.3;
-    font-size: 15px;
-    outline: none;
-    flex-grow: 1;
-    padding: 5px 10px;
-    border-radius: 5px;
-    border: 1px solid #aaa;
-}
-
-.input_group p{
-    flex-grow: 1;
-}
-
-.input_group input[type='checkbox']{
-    width: 20px;
-    height: 20px;
-}
-
-.input_group:last-of-type{
-    display: block;
-    text-align: right;
-}
-
-.input_group:last-of-type input{
-    font-size: 15px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border: none;
-    color: #fff;
-    font-weight: 500;
-    padding: 5px 15px;
-    cursor: pointer;
-    margin: 0 10px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-.input_group:last-of-type input:first-child{
-    background-color: #000;
-}
-
-.input_group:last-of-type input:last-child{
-    background-color: #0048ff;
-}
-
-.ingredients{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-
-.ingredient{
-    width: 700px;
-    padding: 10px;
-}
-.ingredient h1{
-    text-align: center;
-    margin-bottom: 10px;
+.loading {
+  text-align: center;
 }
